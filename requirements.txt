@@ -1,4 +1,4 @@
 pyodbc
 pandas
 numpy
-function_explorer
+streamlit_extras
