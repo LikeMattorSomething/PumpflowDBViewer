@@ -1,3 +1,4 @@
 pyodbc
 pandas
 numpy
+function_explorer
