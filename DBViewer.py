@@ -45,6 +45,6 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
         SortMethod = st.radio('Sort by', ['Job and Test Number', 'Date'], horizontal=True)
 
         if SortMethod == 'Job and Test Number':
-            SQLSearch_JobAndTest
+            SQLSearch_JobAndTest()
         elif SortMethod == "Date":
             SQLSearch_Date()
