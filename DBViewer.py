@@ -26,8 +26,8 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
         def SQLSearch_JobAndTest():
 
 
-            JobNumber = st.number_input('Job Number')
-            TestNumber = st.number_input('Test Number')
+            JobNumber = st.number_input('Job Number',value=0)
+            TestNumber = st.number_input('Test Number',value=0)
 
 
             TempList = cursor.execute("SELECT TOP 100 * FROM MainTable WHERE Job_Number = ? AND Test_Number = ?",JobNumber,TestNumber).fetchall()
