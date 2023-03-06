@@ -23,7 +23,7 @@ st.title('Pumpflow SQL Database Searcher')
 with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
     with conn.cursor() as cursor:
 
-        def SQLSearch_JobAndTest(JobNumber: int = 100,TestNumber: int = 1):
+        def SQLSearch_JobAndTest(JobNumber: int = None,TestNumber: int = None):
 
             ##Makes a connection to the database. Args defined earlier
             TempList = cursor.execute("SELECT TOP 100 * FROM MainTable WHERE Job_Number = ? AND Test_Number = ?",JobNumber,TestNumber).fetchall()
@@ -41,6 +41,6 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
         SortMethod = st.radio('Sort by', ['Job and Test Number', 'Date'], horizontal=True)
 
         if SortMethod == 'Job and Test Number':
-            function_explorer(SQLSearch_JobAndTest)
+            SQLSearch_JobAndTest()
         elif SortMethod == "Date":
-            function_explorer(SQLSearch_Date)
+            SQLSearch_Date()
