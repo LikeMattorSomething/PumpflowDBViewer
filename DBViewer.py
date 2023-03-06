@@ -2,6 +2,9 @@ import os
 import pyodbc
 
 import streamlit as st
+
+st. set_page_config(layout="wide")
+
 import pandas as pd
 import numpy as np
 
