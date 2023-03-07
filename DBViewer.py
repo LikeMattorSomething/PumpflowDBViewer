@@ -38,7 +38,7 @@ with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE=
 
             SelectTable = st.selectbox("Select a table to display",["MainTable","AddTemperatures","AddAuxPressure","AddAuxFlow"])
             Date = st.date_input("Choose a date")
-            TempList = cursor.execute("SELECT TOP 100 * FROM `?` WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, Time))) = ?",SelectTable,Date).fetchall()
+            TempList = cursor.execute("SELECT TOP 100 * FROM '?' WHERE CONVERT(DATETIME, FLOOR(CONVERT(FLOAT, Time))) = ?",SelectTable,Date).fetchall()
             st.table(pd.DataFrame.from_records(TempList,columns=["Time","Job_Number","Test_Number","Take_Point","NGH","Efficiency","Absorbed_Power","Flow_Rate","Suction_Pressure","Discharge_Pressure","V1_DEX","V1_DEY","V1_DEZ","V2_NDEX","V2_NDEY","V2_NDEZ","TT1","Out_Torque","RPM_Used","Current","Voltage","Power","Current_P1","Current_P2","Current_P3","Frequency","LT1","PT_Atm"]))
 
 
